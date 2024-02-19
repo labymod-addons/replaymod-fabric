@@ -1,7 +1,10 @@
+import net.labymod.gradle.core.addon.info.dependency.AddonDependency
+
 plugins {
     id("java-library")
     id("net.labymod.gradle")
     id("net.labymod.gradle.addon")
+    id("org.cadixdev.licenser") version ("0.6.1")
 }
 
 group = "org.example"
@@ -10,14 +13,15 @@ version = "1.0.0"
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 
 labyMod {
-    defaultPackageName = "org.example" //change this to your main package name (used by all modules)
+    defaultPackageName = "net.labymod.addons.replaymod.loader" //change this to your main package name (used by all modules)
     addonInfo {
-        namespace = "example"
-        displayName = "ExampleAddon"
-        author = "Example Author"
-        description = "Example Description"
+        namespace = "replaymod"
+        displayName = "ReplayMod Loader"
+        author = "Johni0702 (LabyMedia GmbH)"
         minecraftVersion = "*"
         version = System.getenv().getOrDefault("VERSION", "0.0.1")
+
+        addonDependencies.add(AddonDependency("labyfabric", false))
     }
 
     minecraft {
@@ -53,10 +57,16 @@ subprojects {
     plugins.apply("java-library")
     plugins.apply("net.labymod.gradle")
     plugins.apply("net.labymod.gradle.addon")
+    plugins.apply("org.cadixdev.licenser")
 
     repositories {
         maven("https://libraries.minecraft.net/")
         maven("https://repo.spongepowered.org/repository/maven-public/")
+    }
+
+    license {
+        header(rootProject.file("gradle/LICENSE-HEADER.txt"))
+        newLine.set(true)
     }
 }
 

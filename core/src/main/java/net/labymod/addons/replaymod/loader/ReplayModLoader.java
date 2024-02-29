@@ -16,9 +16,41 @@
 
 package net.labymod.addons.replaymod.loader;
 
+import net.labymod.addons.replaymod.loader.ReplayModLoader.ReplayModConfig;
+import net.labymod.api.addon.AddonConfig;
+import net.labymod.api.addon.LabyAddon;
+import net.labymod.api.client.gui.screen.widget.widgets.input.SwitchWidget.SwitchSetting;
+import net.labymod.api.configuration.loader.annotation.Exclude;
+import net.labymod.api.configuration.loader.property.ConfigProperty;
 import net.labymod.api.models.addon.annotation.AddonMain;
 
 @AddonMain
-public class ReplayModLoader {
+public class ReplayModLoader extends LabyAddon<ReplayModConfig> {
 
+  @Override
+  protected void load() {
+    super.registerSettingCategory();
+  }
+
+  @Override
+  protected void enable() {
+
+  }
+
+  @Override
+  protected Class<? extends ReplayModConfig> configurationClass() {
+    return ReplayModConfig.class;
+  }
+
+  public static class ReplayModConfig extends AddonConfig {
+
+    @Exclude
+    @SwitchSetting
+    private final ConfigProperty<Boolean> enabled = new ConfigProperty<>(true);
+
+    @Override
+    public ConfigProperty<Boolean> enabled() {
+      return this.enabled;
+    }
+  }
 }

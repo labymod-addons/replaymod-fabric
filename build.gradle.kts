@@ -15,7 +15,7 @@ java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 labyMod {
     defaultPackageName = "net.labymod.addons.replaymod.loader" //change this to your main package name (used by all modules)
     addonInfo {
-        namespace = "replaymod"
+        namespace = "replaymod_loader"
         displayName = "ReplayMod Loader"
         author = "Johni0702 (LabyMedia GmbH)"
         minecraftVersion = "*"

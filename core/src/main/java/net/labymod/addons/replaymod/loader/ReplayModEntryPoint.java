@@ -25,6 +25,7 @@ import net.labymod.api.event.modloader.ModLoaderDiscoveryEvent;
 import net.labymod.api.loader.MinecraftVersions;
 import net.labymod.api.models.addon.annotation.AddonEntryPoint;
 import net.labymod.api.models.version.Version;
+import net.labymod.api.modloader.ModLoaderId;
 import net.labymod.api.util.logging.Logging;
 
 /**
@@ -40,14 +41,14 @@ public class ReplayModEntryPoint implements Entrypoint {
   private final ReplayModFiles replayModFiles = new ReplayModFiles();
 
   public ReplayModEntryPoint() {
-    this.replayModFiles.registerArtifact(MinecraftVersions.V1_20_4, "gxDkodfS");
-    this.replayModFiles.registerArtifact(MinecraftVersions.V1_20_3, "gxDkodfS");
-    this.replayModFiles.registerArtifact(MinecraftVersions.V1_20_2, "G3s7lNSQ");
-    this.replayModFiles.registerArtifact(MinecraftVersions.V1_20_1, "NIH877ct");
+    this.replayModFiles.registerArtifact(MinecraftVersions.V1_20_4, "TGJXKoTQ");
+    this.replayModFiles.registerArtifact(MinecraftVersions.V1_20_3, "TGJXKoTQ");
+    this.replayModFiles.registerArtifact(MinecraftVersions.V1_20_2, "XeL4fIxn");
+    this.replayModFiles.registerArtifact(MinecraftVersions.V1_20_1, "MEAiQjrL");
 
-    this.replayModFiles.registerArtifact(MinecraftVersions.V1_19_4, "hWebWQ5c");
-    this.replayModFiles.registerArtifact(MinecraftVersions.V1_19_3, "KnZ6lROh");
-    this.replayModFiles.registerArtifact(MinecraftVersions.V1_19_2, "BYJF82Q8");
+    this.replayModFiles.registerArtifact(MinecraftVersions.V1_19_4, "jkL57SOi");
+    this.replayModFiles.registerArtifact(MinecraftVersions.V1_19_3, "9ayljarM");
+    this.replayModFiles.registerArtifact(MinecraftVersions.V1_19_2, "CFqKQmeU");
 
     Laby.labyAPI().eventBus().registerListener(this);
   }
@@ -59,7 +60,7 @@ public class ReplayModEntryPoint implements Entrypoint {
 
   @Subscribe
   public void onModLoaderDiscover(ModLoaderDiscoveryEvent event) {
-    if (!event.modLoader().getId().equals("fabricloader")) {
+    if (!event.modLoader().getId().equals(ModLoaderId.FABRIC)) {
       return;
     }
 

@@ -41,7 +41,7 @@ public class ReplayModFiles {
   private static final Gson GSON = new Gson();
 
   private static final String MODRINTH_ID = "Nv2fQJo5";
-  private static final String REPLAYMOD_VERSION = "2.6.14";
+  private static final String REPLAYMOD_VERSION = "2.6.15";
 
   private final Map<Version, ModrinthArtifact> artifacts = new HashMap<>();
 
